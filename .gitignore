@@ -4,7 +4,8 @@ NotDiablo4/[Tt]emp/
 NotDiablo4/[Oo]bj/
 NotDiablo4/[Bb]uild/
 NotDiablo4/[Bb]uilds/
-NotDiablo4/[Pp]ackages/
+NotDiablo4/[Pp]ackages/*
+!NotDiablo4/[Pp]ackages/manifest.json
 NotDiablo4/[Aa]ssets/AssetStoreTools*
 *.unityproj
 
@@ -180,7 +181,7 @@ PublishScripts/
 # NuGet Packages
 *.nupkg
 # The packages folder can be ignored because of Package Restore
-**/packages/*
+#**/packages/*
 # except build/, which is used as an MSBuild target.
 !**/packages/build/
 # Uncomment if necessary however generally it will be regenerated when needed
