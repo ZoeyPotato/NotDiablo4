@@ -213,7 +213,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1270331376
 PrefabInstance:
@@ -225,6 +225,14 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3b419d04cd2946a419936bb41d9890d7, type: 3}
       propertyPath: m_Name
       value: Testmap_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3b419d04cd2946a419936bb41d9890d7, type: 3}
+      propertyPath: m_TagString
+      value: WorldMap
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3b419d04cd2946a419936bb41d9890d7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3b419d04cd2946a419936bb41d9890d7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -256,7 +264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3b419d04cd2946a419936bb41d9890d7, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3b419d04cd2946a419936bb41d9890d7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -284,7 +292,7 @@ GameObject:
   - component: {fileID: 1285049661}
   m_Layer: 0
   m_Name: PlayerBox
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -350,7 +358,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1339834179
 GameObject:
@@ -381,7 +389,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1339834181
 MonoBehaviour:
