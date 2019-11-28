@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 420103513}
   m_Layer: 0
   m_Name: MainCamera
-  m_TagString: MainCamera
+  m_TagString: Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -228,7 +228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 3b419d04cd2946a419936bb41d9890d7, type: 3}
       propertyPath: m_TagString
-      value: WorldMap
+      value: Map
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 3b419d04cd2946a419936bb41d9890d7, type: 3}
       propertyPath: m_IsActive
