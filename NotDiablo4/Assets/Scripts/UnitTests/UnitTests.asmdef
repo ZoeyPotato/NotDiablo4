@@ -1,5 +1,8 @@
 ﻿{
     "name": "UnitTests",
+	"references": [
+        "NotDiablo4"
+    ],
     "optionalUnityReferences": [
         "TestAssemblies"
     ],

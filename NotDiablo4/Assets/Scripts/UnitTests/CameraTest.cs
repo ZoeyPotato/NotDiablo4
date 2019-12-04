@@ -8,6 +8,7 @@ namespace Tests
     {
         GameObject camera = GameObject.FindWithTag("Camera");
         GameObject[] cameras = GameObject.FindGameObjectsWithTag("Camera");
+        float maxCamDepth = -0.3f;
 
 
         [Test]
@@ -19,13 +20,13 @@ namespace Tests
         [Test]
         public void ThereIsOnlyOneCamera()
         {
-            Assert.AreEqual(1, cameras.Length);
+            Assert.AreEqual(cameras.Length, 1);
         }
 
         [Test]
         public void CameraIsAboveMap()
         {
-            Assert.LessOrEqual(camera.transform.position.z, -0.3);
+            Assert.GreaterOrEqual(maxCamDepth, camera.transform.position.z);
         }
     }
 }

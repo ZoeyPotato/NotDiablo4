@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Tests
 {
-    public class Map
+    public class MapTest
     {
         GameObject map = GameObject.FindWithTag("Map");
         GameObject[] maps = GameObject.FindGameObjectsWithTag("Map");
@@ -19,13 +19,13 @@ namespace Tests
         [Test]
         public void ThereIsOnlyOneMap()
         {
-            Assert.AreEqual(1, maps.Length);
+            Assert.AreEqual(maps.Length, 1);
         }
 
         [Test]
         public void MapIsOrigin()
         {
-            Assert.AreEqual(Vector3.zero, map.transform.position);
+            Assert.AreEqual(map.transform.position, Vector3.zero);
         }
     }
 }
