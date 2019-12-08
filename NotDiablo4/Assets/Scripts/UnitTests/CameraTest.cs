@@ -6,8 +6,7 @@ namespace Tests
 {
     public class CameraTest
     {
-        GameObject camera = GameObject.FindWithTag("Camera");
-        GameObject[] cameras = GameObject.FindGameObjectsWithTag("Camera");
+        Camera camera = Camera.main;
         float maxCamDepth = -0.3f;
 
 
@@ -20,7 +19,7 @@ namespace Tests
         [Test]
         public void ThereIsOnlyOneCamera()
         {
-            Assert.AreEqual(cameras.Length, 1);
+            Assert.AreEqual(Camera.allCamerasCount, 1);
         }
 
         [Test]

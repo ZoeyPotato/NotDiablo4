@@ -6,6 +6,7 @@ namespace Tests
 {
     public class MapTest
     {
+        //TODO get map from a map script
         GameObject map = GameObject.FindWithTag("Map");
         GameObject[] maps = GameObject.FindGameObjectsWithTag("Map");
 

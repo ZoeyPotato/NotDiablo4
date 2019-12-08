@@ -7,18 +7,12 @@ namespace Tests
 {
     public class PlayerTest
     {
+        //TODO get player from func in player script
         GameObject player = GameObject.FindWithTag("Player");
+        //TODO get player count from func in player script
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
-        Vector3 spawnPoint = new Vector3(0, -25, 0);
-        Vector3 initialPos;
-
-
-        //PlayerTest()   //TODO resolve No suitable constructor was found
-        //{
-        //    currentPos = player.transform.position;
-        //}
-
+        
         [Test]
         public void PlayerExists()
         {
@@ -31,22 +25,25 @@ namespace Tests
             Assert.AreEqual(players.Length, 1);
         }
 
-        //[Test]
-        //public void PlayerStartsAtSpawn()
-        //{
-        //    Assert.AreEqual(initialPos, spawnPoint);
-        //}
+        [Test]
+        public void PlayerStartsAtSpawn()
+        {
+            Vector3 startingPos = player.transform.position;
+            Vector3 spawnPoint = new Vector3(0, -25, 0);
+
+            Assert.AreEqual(startingPos, spawnPoint);
+        }
 
         [Test]
         public void PlayerCanMove()
         {
-            PlayerMoveUp();
-            PlayerMoveLeft();
-            PlayerMoveDown();
-            PlayerMoveRight();
+            playerMoveUp();
+            playerMoveLeft();
+            playerMoveDown();
+            playerMoveRight();
         }
         #region
-        void PlayerMoveUp()
+        void playerMoveUp()
         {
             Vector3 currentPos = player.transform.position;
 
@@ -56,7 +53,7 @@ namespace Tests
             Assert.Greater (player.transform.position.y, currentPos.y);
             Assert.AreEqual(player.transform.position.z, currentPos.z);
         }
-        void PlayerMoveLeft()
+        void playerMoveLeft()
         {
             Vector3 currentPos = player.transform.position;
 
@@ -66,7 +63,7 @@ namespace Tests
             Assert.AreEqual(player.transform.position.y, currentPos.y);
             Assert.AreEqual(player.transform.position.z, currentPos.z);
         }
-        void PlayerMoveDown()
+        void playerMoveDown()
         {
             Vector3 currentPos = player.transform.position;
 
@@ -76,7 +73,7 @@ namespace Tests
             Assert.Less    (player.transform.position.y, currentPos.y);
             Assert.AreEqual(player.transform.position.z, currentPos.z);
         }
-        void PlayerMoveRight()
+        void playerMoveRight()
         {
             Vector3 currentPos = player.transform.position;
 

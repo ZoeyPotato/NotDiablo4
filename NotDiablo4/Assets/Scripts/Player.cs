@@ -6,15 +6,15 @@ namespace NotDiablo4
     public class Player : MonoBehaviour
     {
         public GameObject player;
-        float speed = 5f;
+        public float speed = 10f;
 
 
         void Update()
         {
-            Movement();
+            movement();
         }
 
-        void Movement()
+        void movement()
         {
             if (Input.GetButton("w"))
                 MoveUp();
@@ -28,22 +28,26 @@ namespace NotDiablo4
         #region
         public void MoveUp()
         {
-            float translation = speed * Time.deltaTime;
+            float translation = speed * Time.deltaTime / 2;
+            Debug.Log("up");
             player.transform.Translate(0, translation, 0);
         }
         public void MoveLeft()
         {
             float translation = -speed * Time.deltaTime;
+            Debug.Log("left");
             player.transform.Translate(translation, 0, 0);
         }
         public void MoveDown()
         {
-            float translation = -speed * Time.deltaTime;
+            float translation = -speed * Time.deltaTime / 2;
+            Debug.Log("down");
             player.transform.Translate(0, translation, 0);
         }
         public void MoveRight()
         {
             float translation = speed * Time.deltaTime;
+            Debug.Log("right");
             player.transform.Translate(translation, 0, 0);
         }
         #endregion
