@@ -6,50 +6,30 @@ namespace NotDiablo4
     public class Player : MonoBehaviour
     {
         public GameObject player;
-        public float speed = 10f;
+        public float      movementSpeed = 5f;
+        public bool       isMoving      = false;
 
 
         void Update()
         {
-            movement();
+            Movement(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         }
 
-        void movement()
+
+        public void Movement(float horizontalInput, float verticalInput)
         {
-            if (Input.GetButton("w"))
-                MoveUp();
-            if (Input.GetButton("a"))
-                MoveLeft();
-            if (Input.GetButton("s"))
-                MoveDown();
-            if (Input.GetButton("d"))
-                MoveRight();
+            isMoving = horizontalInput != 0 || verticalInput != 0;
+
+            if (isMoving)
+            {
+                Vector3 movementInput = new Vector3(horizontalInput, verticalInput).normalized;
+                movementInput = Utility.RotateMovementInput(movementInput);
+                
+                Vector3 movement  = movementInput * movementSpeed * Time.deltaTime;
+                movement  = Utility.CartesianToIsometric(movement);
+                
+                player.transform.Translate(movement);
+            }
         }
-        #region
-        public void MoveUp()
-        {
-            float translation = speed * Time.deltaTime / 2;
-            Debug.Log("up");
-            player.transform.Translate(0, translation, 0);
-        }
-        public void MoveLeft()
-        {
-            float translation = -speed * Time.deltaTime;
-            Debug.Log("left");
-            player.transform.Translate(translation, 0, 0);
-        }
-        public void MoveDown()
-        {
-            float translation = -speed * Time.deltaTime / 2;
-            Debug.Log("down");
-            player.transform.Translate(0, translation, 0);
-        }
-        public void MoveRight()
-        {
-            float translation = speed * Time.deltaTime;
-            Debug.Log("right");
-            player.transform.Translate(translation, 0, 0);
-        }
-        #endregion
     }
 }

@@ -7,12 +7,9 @@ namespace Tests
 {
     public class PlayerTest
     {
-        //TODO get player from func in player script
         GameObject player = GameObject.FindWithTag("Player");
-        //TODO get player count from func in player script
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
-        
+
         [Test]
         public void PlayerExists()
         {
@@ -22,65 +19,111 @@ namespace Tests
         [Test]
         public void ThereIsOnlyOnePlayer()
         {
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
             Assert.AreEqual(players.Length, 1);
         }
 
-        [Test]
+        [Test, Order(1)]
         public void PlayerStartsAtSpawn()
         {
             Vector3 startingPos = player.transform.position;
-            Vector3 spawnPoint = new Vector3(0, -25, 0);
+            Vector3 spawnPoint  = new Vector3(0, -25, 0);
 
             Assert.AreEqual(startingPos, spawnPoint);
         }
 
-        [Test]
-        public void PlayerCanMove()
+        [Test, Order(2)]
+        public void PlayerMovement()
         {
             playerMoveUp();
+            playerMoveLeftUp();
             playerMoveLeft();
+            playerMoveLeftDown();
             playerMoveDown();
+            playerMoveRightDown();
             playerMoveRight();
+            playerMoveRightUp();
         }
-        #region
-        void playerMoveUp()
+        #region movement
+        private void playerMoveUp()
         {
             Vector3 currentPos = player.transform.position;
 
-            player.GetComponent<Player>().MoveUp();
+            player.GetComponent<Player>().Movement( 0,  1);
 
             Assert.AreEqual(player.transform.position.x, currentPos.x);
             Assert.Greater (player.transform.position.y, currentPos.y);
             Assert.AreEqual(player.transform.position.z, currentPos.z);
         }
-        void playerMoveLeft()
+        private void playerMoveLeftUp()
         {
             Vector3 currentPos = player.transform.position;
 
-            player.GetComponent<Player>().MoveLeft();
+            player.GetComponent<Player>().Movement(-1,  1);
+
+            Assert.Less    (player.transform.position.x, currentPos.x);
+            Assert.Greater (player.transform.position.y, currentPos.y);
+            Assert.AreEqual(player.transform.position.z, currentPos.z);
+        }
+        private void playerMoveLeft()
+        {
+            Vector3 currentPos = player.transform.position;
+
+            player.GetComponent<Player>().Movement(-1,  0);
 
             Assert.Less    (player.transform.position.x, currentPos.x);
             Assert.AreEqual(player.transform.position.y, currentPos.y);
             Assert.AreEqual(player.transform.position.z, currentPos.z);
         }
-        void playerMoveDown()
+        private void playerMoveLeftDown()
         {
             Vector3 currentPos = player.transform.position;
 
-            player.GetComponent<Player>().MoveDown();
+            player.GetComponent<Player>().Movement(-1, -1);
+
+            Assert.Less    (player.transform.position.x, currentPos.x);
+            Assert.Less    (player.transform.position.y, currentPos.y);
+            Assert.AreEqual(player.transform.position.z, currentPos.z);
+        }
+        private void playerMoveDown()
+        {
+            Vector3 currentPos = player.transform.position;
+
+            player.GetComponent<Player>().Movement( 0, -1);
 
             Assert.AreEqual(player.transform.position.x, currentPos.x);
             Assert.Less    (player.transform.position.y, currentPos.y);
             Assert.AreEqual(player.transform.position.z, currentPos.z);
         }
-        void playerMoveRight()
+        private void playerMoveRightDown()
         {
             Vector3 currentPos = player.transform.position;
 
-            player.GetComponent<Player>().MoveRight();
+            player.GetComponent<Player>().Movement( 1, -1);
+
+            Assert.Greater (player.transform.position.x, currentPos.x);
+            Assert.Less    (player.transform.position.y, currentPos.y);
+            Assert.AreEqual(player.transform.position.z, currentPos.z);
+        }
+        private void playerMoveRight()
+        {
+            Vector3 currentPos = player.transform.position;
+
+            player.GetComponent<Player>().Movement( 1,  0);
 
             Assert.Greater (player.transform.position.x, currentPos.x);
             Assert.AreEqual(player.transform.position.y, currentPos.y);
+            Assert.AreEqual(player.transform.position.z, currentPos.z);
+        }
+        private void playerMoveRightUp()
+        {
+            Vector3 currentPos = player.transform.position;
+
+            player.GetComponent<Player>().Movement( 1,  1);
+
+            Assert.Greater (player.transform.position.x, currentPos.x);
+            Assert.Greater (player.transform.position.y, currentPos.y);
             Assert.AreEqual(player.transform.position.z, currentPos.z);
         }
         #endregion

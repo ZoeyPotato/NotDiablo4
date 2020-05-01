@@ -138,6 +138,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Map
       objectReference: {fileID: 0}
+    - target: {fileID: -390337358200286961, guid: 3b419d04cd2946a419936bb41d9890d7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6663889527146240172, guid: 3b419d04cd2946a419936bb41d9890d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -300,9 +305,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1285049662}
+  - component: {fileID: 1285049663}
   - component: {fileID: 1285049661}
   - component: {fileID: 1285049664}
-  - component: {fileID: 1285049663}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -359,7 +364,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!4 &1285049662
 Transform:
   m_ObjectHideFlags: 0
@@ -387,7 +392,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1285049660}
-  speed: 10
+  movementSpeed: 5
+  isMoving: 0
 --- !u!60 &1285049664
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -404,7 +410,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.18}
     oldSize: {x: 1.125, y: 1.5625}
     newSize: {x: 1.125, y: 1.5625}
     adaptiveTilingThreshold: 0.5
@@ -413,10 +419,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.5625, y: -0.5}
-      - {x: 0, y: -0.2}
-      - {x: -0.5625, y: -0.5}
-      - {x: 0, y: -0.78125}
+    - - {x: 0.5625, y: 0}
+      - {x: 0, y: 0.28125}
+      - {x: -0.5625, y: 0}
+      - {x: 0, y: -0.28125}
 --- !u!1 &1339834179
 GameObject:
   m_ObjectHideFlags: 0

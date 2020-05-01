@@ -7,7 +7,6 @@ namespace Tests
     public class CameraTest
     {
         Camera camera = Camera.main;
-        float maxCamDepth = -0.3f;
 
 
         [Test]
@@ -25,7 +24,9 @@ namespace Tests
         [Test]
         public void CameraIsAboveMap()
         {
-            Assert.GreaterOrEqual(maxCamDepth, camera.transform.position.z);
+            float maxDepth = -0.3f;
+
+            Assert.GreaterOrEqual(maxDepth, camera.transform.position.z);
         }
     }
 }

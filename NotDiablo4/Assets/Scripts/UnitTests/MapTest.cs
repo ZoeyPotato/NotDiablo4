@@ -6,9 +6,7 @@ namespace Tests
 {
     public class MapTest
     {
-        //TODO get map from a map script
         GameObject map = GameObject.FindWithTag("Map");
-        GameObject[] maps = GameObject.FindGameObjectsWithTag("Map");
 
 
         [Test]
@@ -20,6 +18,8 @@ namespace Tests
         [Test]
         public void ThereIsOnlyOneMap()
         {
+            GameObject[] maps = GameObject.FindGameObjectsWithTag("Map");
+
             Assert.AreEqual(maps.Length, 1);
         }
 
