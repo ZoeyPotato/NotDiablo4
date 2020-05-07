@@ -6,7 +6,7 @@ namespace Tests
 {
     public class MapTest
     {
-        GameObject map = GameObject.FindWithTag("Map");
+        private GameObject map = GameObject.FindWithTag("Map");
 
 
         [Test]

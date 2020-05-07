@@ -6,7 +6,7 @@ namespace Tests
 {
     public class CameraTest
     {
-        Camera camera = Camera.main;
+        private Camera camera = Camera.main;
 
 
         [Test]

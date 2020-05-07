@@ -3,13 +3,14 @@
 
 public class GameManager : MonoBehaviour 
 {
-	// Use this for initialization
 	void Start () 
     {
         Debug.Log("hello, is this thing working?");
+
+		//QualitySettings.vSyncCount = 0;
+		//Application.targetFrameRate = 10;
 	}
 	
-	// Update is called once per frame
 	void Update () 
     {
 
