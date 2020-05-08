@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-namespace Tests
+namespace EditModeUnitTests
 {
     public class MapTest
     {

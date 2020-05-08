@@ -7,8 +7,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("hello, is this thing working?");
 
-		//QualitySettings.vSyncCount = 0;
-		//Application.targetFrameRate = 10;
+		Application.targetFrameRate = 300;
 	}
 	
 	void Update () 
