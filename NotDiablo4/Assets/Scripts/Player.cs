@@ -7,13 +7,16 @@ namespace NotDiablo4
     {
         public  float       MovementSpeed = 5f;
         
+        private bool        isMoving      = false;
         private Rigidbody2D rigidBody;
-        private bool        IsMoving      = false;
+        private Animator animator;
+        
 
 
         private void Awake()
         {
             rigidBody = GetComponent<Rigidbody2D>();
+            animator  = GetComponent<Animator>();
         }
 
 
@@ -29,9 +32,10 @@ namespace NotDiablo4
                                                  //unity will set velocity to a non-zero value after colliding into a corner...
                                                  //maybe move to OnCollisionEnter, detect when the corner case happens, then set to zero
             
-            IsMoving = horizontalInput != 0 || verticalInput != 0;
+            isMoving = horizontalInput != 0 || verticalInput != 0;
+            animator.SetBool("IsMoving", isMoving);
 
-            if (IsMoving)
+            if (isMoving)
             {
                 Vector2 movementInput = new Vector2(horizontalInput, verticalInput).normalized;
                 movementInput = Utility.RotateMovementInput(movementInput);
