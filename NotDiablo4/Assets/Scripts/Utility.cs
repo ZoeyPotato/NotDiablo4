@@ -39,7 +39,7 @@ namespace NotDiablo4
         {
             movementInput = Quaternion.AngleAxis(45, Vector3.forward) * movementInput;
 
-            //manually round the rotation results because unity inconsistently rounds diagonal rotations
+            //manually round the rotation results because unity inaccuractely rounds diagonal rotations
             movementInput.x = (float) System.Math.Round(movementInput.x, 6);
             movementInput.y = (float) System.Math.Round(movementInput.y, 6);
 

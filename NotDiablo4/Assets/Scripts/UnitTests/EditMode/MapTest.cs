@@ -6,27 +6,34 @@ namespace EditModeUnitTests
 {
     public class MapTest
     {
-        private GameObject map = GameObject.FindWithTag("Map");
+        private GameObject mapObject;
 
 
-        [Test]
-        public void MapExists()
+        [SetUp]
+        public void Setup()
+        { 
+            mapObject = GameObject.FindWithTag("Map");
+        }
+
+
+        [Test, Order(0)]
+        public void Exists()
         {
-            Assert.IsNotNull(map);
+            Assert.IsNotNull(mapObject);
         }
 
         [Test]
-        public void ThereIsOnlyOneMap()
+        public void ThereIsOnlyOne()
         {
-            GameObject[] maps = GameObject.FindGameObjectsWithTag("Map");
+            int numberOfMaps = GameObject.FindGameObjectsWithTag("Map").Length;
 
-            Assert.AreEqual(maps.Length, 1);
+            Assert.AreEqual(1, numberOfMaps);
         }
 
         [Test]
-        public void MapIsOrigin()
+        public void IsOrigin()
         {
-            Assert.AreEqual(map.transform.position, Vector3.zero);
+            Assert.AreEqual(Vector3.zero, mapObject.transform.position);
         }
     }
 }

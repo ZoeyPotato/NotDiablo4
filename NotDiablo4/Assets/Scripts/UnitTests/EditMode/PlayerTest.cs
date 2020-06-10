@@ -1,35 +1,43 @@
 ﻿using NUnit.Framework;
 using UnityEngine;
+using NotDiablo4;
 
 
 namespace EditModeUnitTests
 {
     public class PlayerTest
     {
-        private GameObject player = GameObject.FindWithTag("Player");
+        private Player player;
 
 
-        [Test]
-        public void PlayerExists()
+        [SetUp]
+        public void Setup()
+        { 
+            GameObject playerObject = GameObject.FindWithTag("Player");
+            player                  = playerObject.GetComponent<Player>();
+        }
+
+
+        [Test, Order(0)]
+        public void Exists()
         {
             Assert.IsNotNull(player);
         }
 
         [Test]
-        public void ThereIsOnlyOnePlayer()
+        public void ThereIsOnlyOne()
         {
-            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            int numberOfPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
 
-            Assert.AreEqual(players.Length, 1);
+            Assert.AreEqual(1, numberOfPlayers);
         }
 
         [Test]
-        public void PlayerStartsAtSpawn()
+        public void StartsAtSpawn()
         {
-            Vector2 startingPos = player.transform.position;
-            Vector2 spawnPoint  = new Vector3(0, -25, 0);
+            Vector3 spawnPoint = new Vector3(0, -25, 0);
 
-            Assert.AreEqual(startingPos, spawnPoint);
+            Assert.AreEqual(spawnPoint, player.transform.position);
         }
     }
 }

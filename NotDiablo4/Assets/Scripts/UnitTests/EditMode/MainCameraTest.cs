@@ -7,35 +7,41 @@ namespace EditModeUnitTests
 {
     public class MainCameraTest
     {
-        private GameObject mainCamera = GameObject.FindWithTag("MainCamera");
+        private MainCamera mainCamera;
 
 
-        [Test]
-        public void CameraExists()
+        [SetUp]
+        public void Setup()
+        { 
+            GameObject cameraObject = GameObject.FindWithTag("MainCamera");
+            mainCamera              = cameraObject.GetComponent<MainCamera>();
+        }
+
+
+        [Test, Order(0)]
+        public void Exists()
         {
             Assert.IsNotNull(mainCamera);
         }
 
         [Test]
-        public void CameraHasPlayer()
+        public void ThereIsOnlyOne()
         {
-            Player camerasPlayer = mainCamera.GetComponent<MainCamera>().player;
-
-            Assert.IsNotNull(camerasPlayer);
+            Assert.AreEqual(1, Camera.allCamerasCount);
         }
 
         [Test]
-        public void ThereIsOnlyOneCamera()
+        public void HasPlayer()
         {
-            Assert.AreEqual(Camera.allCamerasCount, 1);
+            Assert.IsNotNull(mainCamera.Player);
         }
 
         [Test]
-        public void CameraIsAboveMap()
+        public void IsAtRequiredDepth()
         {
-            float maxDepth = -0.3f;
+            float requiredDepth = -10;
 
-            Assert.GreaterOrEqual(maxDepth, mainCamera.transform.position.z);
+            Assert.AreEqual(requiredDepth, mainCamera.transform.position.z);
         }
     }
 }
