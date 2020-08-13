@@ -188,6 +188,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6589257275060608453, guid: e976928d7826eec45ae2939a70578e0e,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589257275060608453, guid: e976928d7826eec45ae2939a70578e0e,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
+      value: 0.28125
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589257275060608453, guid: e976928d7826eec45ae2939a70578e0e,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
+      value: -0.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589257275060608453, guid: e976928d7826eec45ae2939a70578e0e,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589257275060608453, guid: e976928d7826eec45ae2939a70578e0e,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589257275060608453, guid: e976928d7826eec45ae2939a70578e0e,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
+      value: -0.28125
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589257275060608453, guid: e976928d7826eec45ae2939a70578e0e,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
+      value: 0.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589257275060608453, guid: e976928d7826eec45ae2939a70578e0e,
+        type: 3}
+      propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6589257275060608455, guid: e976928d7826eec45ae2939a70578e0e,
         type: 3}
       propertyPath: m_RootOrder

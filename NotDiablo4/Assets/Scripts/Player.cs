@@ -52,6 +52,8 @@ namespace NotDiablo4
             {
                 currentState = State.Meleeing;
 
+                //TODO animation
+
                 Melee();
             }
             else if (moving)

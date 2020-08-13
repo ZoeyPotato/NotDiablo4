@@ -16,6 +16,8 @@ namespace PlayModeUnitTests
         [SetUp]
         public void Setup()
         { 
+            Time.timeScale = 10;   //make time 10x faster, speeds up tests
+
             player    = Utility.InstantiatePlayer();
             rigidBody = player.GetComponent<Rigidbody2D>();
         }
@@ -71,7 +73,7 @@ namespace PlayModeUnitTests
         }
 
 
-        //TODO move player state machine in its own class
+        //TODO move player state machine in its own class??
 
         [Test, Order(2)]
         public void StateMachineStartsInIdle()
@@ -133,8 +135,8 @@ namespace PlayModeUnitTests
             Assert.AreEqual(Player.State.Meleeing, player.GetCurrentState());
         }
 
-        [Test]
-        public void stateMachineGoMeleeingWhileMoving()
+        [UnityTest]
+        public IEnumerator stateMachineGoMeleeingWhileMoving()
         {
             int horizontalInput = -1;
             int verticalInput   = -1;
@@ -151,6 +153,13 @@ namespace PlayModeUnitTests
                     player.StateMachine(meleeWhileMoving);
 
                     Assert.AreEqual(Player.State.Meleeing, player.GetCurrentState());
+
+                    //wait for meleelock to expire and then tick once to reset state to idle
+                    //if we don't do this, we will be locked to meleeing after the first loop
+                    //once locked, inputs won't change the state, so our movement inputs won't be tested
+                    //waiting ensure all movement inputs are tested in isolation and that none of them interfere with GOING to meleeing
+                    yield return new WaitForSeconds(player.GetMeleeDuration());
+                    yield return new WaitForFixedUpdate();
 
                     verticalInput++;
                 }
@@ -206,7 +215,5 @@ namespace PlayModeUnitTests
                 meleeTimer -= Time.fixedDeltaTime;
             }
         }
-
-        //TODO public IEnumerator ExitMeleeingState()
     }
 }
